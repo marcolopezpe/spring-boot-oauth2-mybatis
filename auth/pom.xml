@@ -86,12 +86,15 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+<<<<<<< HEAD
 			<exclusions>
 				<exclusion>
 					<groupId>org.hibernate</groupId>
 					<artifactId>hibernate-validator</artifactId>
 				</exclusion>
 			</exclusions>
+=======
+>>>>>>> 30fcc819b8b0fe4023b4b4f6adf63be5d9f5623c
 		</dependency>
 
 		<dependency>

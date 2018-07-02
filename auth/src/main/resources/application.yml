@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 server:
   port: 8880
 spring:
   profiles: development
   datasource:
     url: jdbc:postgresql://192.168.20.13:5432/oauth2
+=======
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/oauth2
+>>>>>>> 30fcc819b8b0fe4023b4b4f6adf63be5d9f5623c
     username: postgres
     password: 123456789
     driver-class-name: org.postgresql.Driver
@@ -11,6 +17,7 @@ spring:
     default-timeout: 10
     rollback-on-commit-failure: true
     
+<<<<<<< HEAD
 ---
 server:
   port: 80
@@ -37,8 +44,22 @@ server:
 mybatis:
   type-aliases-package: pe.marcolopez.auth.domain
   mapper-locations: classpath:pe/marcolopez/auth/mapper/*.xml
+=======
+mybatis:
+  type-aliases-package: pe.marcolopez.auth.domain
+  mapper-locations: classpath:pe/marcolopez/auth/mapper/*.xml
+  
+server:
+  port: 8880
+  context-path: /auth
+  
+>>>>>>> 30fcc819b8b0fe4023b4b4f6adf63be5d9f5623c
 logging:
   level:
     org.springframework.security: debug
     pe.marcolopez.auth: debug
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 30fcc819b8b0fe4023b4b4f6adf63be5d9f5623c
