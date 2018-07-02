@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/oauth2
+    username: postgres
+    password: 123456789
+    driver-class-name: org.postgresql.Driver
+  transaction:
+    default-timeout: 10
+    rollback-on-commit-failure: true
+    
+mybatis:
+  type-aliases-package: pe.marcolopez.auth.domain
+  mapper-locations: classpath:pe/marcolopez/auth/mapper/*.xml
+  
+server:
+  port: 8880
+  context-path: /auth
+  
+logging:
+  level:
+    org.springframework.security: debug
+    pe.marcolopez.auth: debug
+
