@@ -1,0 +1,44 @@
+server:
+  port: 8880
+spring:
+  profiles: development
+  datasource:
+    url: jdbc:postgresql://192.168.20.13:5432/oauth2
+    username: postgres
+    password: 123456789
+    driver-class-name: org.postgresql.Driver
+  transaction:
+    default-timeout: 10
+    rollback-on-commit-failure: true
+    
+---
+server:
+  port: 80
+spring:
+  profiles: production
+  datasource:
+    url: jdbc:postgresql://192.168.20.11:5432/oauth2
+    username: postgres
+    password: bdsq1@mmm0f1c1@l3s.n3t
+    driver-class-name: org.postgresql.Driver
+  transaction:
+    default-timeout: 10
+    rollback-on-commit-failure: true
+---
+spring:
+  profiles:
+    active: development
+  thymeleaf:
+    cache: false
+server:
+  context-path: /auth
+  session:
+    timeout: 31536000
+mybatis:
+  type-aliases-package: pe.marcolopez.auth.domain
+  mapper-locations: classpath:pe/marcolopez/auth/mapper/*.xml
+logging:
+  level:
+    org.springframework.security: debug
+    pe.marcolopez.auth: debug
+  

@@ -1,0 +1,25 @@
+auth-server: http://localhost:8880/auth
+security-client: http://localhost:8882/security
+
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      client-id: security
+      client-secret: securitysecret
+      access-token-uri: ${auth-server}/oauth/token
+      user-authorization-uri: ${auth-server}/oauth/authorize
+    resource:
+      token-info-uri: ${auth-server}/oauth/check_token
+      
+server:
+  port: 8882
+  context-path: /security
+  session:
+    cookie:
+      name: UISESSION
+  
+logging:
+  level:
+    org.springframework.security: debug

@@ -1,0 +1,27 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pe.marcolopez.auth.mapper.UserMapper">
+
+	<select id="getUserByUsername" resultMap="userResultMap">
+		select	user_id,
+				first_name,
+				last_name,
+				email,
+				username,
+				password,
+				active
+		from users
+		where username = #{username}
+	</select>
+	
+	<resultMap type="User" id="userResultMap">
+		<id column="user_id" property="id"/>
+		<result column="first_name" property="firstName"/>
+		<result column="last_name" property="lastName"/>
+		<result column="email" property="email"/>
+		<result column="username" property="username"/>
+		<result column="password" property="password"/>
+		<result column="active" property="active"/>
+	</resultMap>
+  
+</mapper>
