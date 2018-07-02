@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
+import pe.marcolopez.auth.security.AuthenticationSuccessHandlerImpl;
+
 @Configuration
 @EnableResourceServer
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -18,6 +20,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	private UserDetailsService customUserDetailService;
+	
+	@Autowired
+	private AuthenticationSuccessHandlerImpl authenticationSuccessHandler;
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -25,6 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.formLogin()
 				.loginPage("/login")
 				.defaultSuccessUrl("/")
+				.successHandler(authenticationSuccessHandler)
 				.permitAll()
 			.and()
 				.logout()
